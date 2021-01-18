@@ -1,0 +1,38 @@
+Business Rules and Assumptions
+Identifying and documenting business rules helps formalize your understanding of the environment you are modeling and ultimately helps ensure that your database design meets the needs of your customer.  You are likely to develop the initial business rules from study of the current business environment and your understanding of your customer’s future plans.  These business rules will not be static.  They will likely change and evolve as your understanding of your customer’s business grows and your database design takes shape, and they will likely influence your database structure.  The following  is the suggested starting point for the project:
+The startUp database should be normalized to 3NF.
+Person – agent/entrepreneur/capitalist is a generalization-specialization relationship (superclass/subclass)
+Funding projects are tracked with funding accounts.
+Skills training projects are tracked with training accounts.
+Agents are linked to funding accounts and training accounts.
+Entrepreneurs are linked to funding accounts and training accounts through clients.
+Capitalists are linked to funding accounts through funders.
+sU may have multiple clients.
+sU may have relationships with multiple funders.
+There may be multiple entrepreneurs associated with a client.
+An entrepreneur may be associated with multiple clients.
+An entrepreneur is not required to be associated with any clients.
+A client is not required to be associated with a funding account or training account.
+A client may be associated with multiple funding accounts and training accounts.
+A registered funder is not required to be associated with a funding account.
+All capitalists are associated with at least one funder.
+Capitalists may be associated with multiple funders.
+There may be multiple capitalists associated with a funder.
+A registered funder may be associated with multiple funding accounts. 
+A funding account may not exist without an agent and a client.
+A funding account must be associated with one and only one agent.
+A funding account must be associated with one and only one client.
+A funding account may exist without a funder.
+A funding account may be associated with multiple funders.
+Funding accounts track the total capitalization amount:  the total capitalization of all associated funders.
+A training account may not exist without an agent and a client.
+A training account must be associated with one and only one agent.
+A training account must be associated with one and only one client.
+Training accounts are not associated with funders. 
+A fundingAccountEndDate or trainingAccountEndDate of NULL indicates an open account.
+A valid non-NULL fundingAccountEndDate or trainingAccountEndDate indicates when an account was closed.
+hireEndDate of NULL indicates an employee continues to be employed.
+A valid non-NULL hireEndDate indicates an employee is no longer employed.
+Start dates should precede end dates.
+sU management would like to develop a comprehensive list of the project categories to be used to identify market segments and potential future business.
+Assign categories to clients.  Ensure that some clients have no categories, some clients have one or two categories, and some clients have more than two categories.
